@@ -1,0 +1,144 @@
+<div class="container mx-auto">
+  <button (click)="back()" class="btn">Back</button>
+
+  <form [formGroup]="editTask">
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Title</span>
+      </label>
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="title"
+        [(ngModel)]="task.title"
+        class="input input-info input-bordered"
+      />
+      <label
+        class="label"
+        *ngIf="
+          fEdit.title.invalid && (fEdit.title.dirty || fEdit.title.touched)
+        "
+      >
+        <span
+          *ngIf="fEdit.title.errors?.required"
+          class="label-text-alt text-red-500"
+          text-red-500
+          >Không để trống</span
+        >
+      </label>
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">task</span>
+      </label>
+      <input
+        type="text"
+        formControlName="task"
+        placeholder="task"
+        [(ngModel)]="task.task"
+        class="input input-info input-bordered"
+      />
+      <label
+        class="label"
+        *ngIf="fEdit.task.invalid && (fEdit.task.dirty || fEdit.task.touched)"
+      >
+        <span
+          *ngIf="fEdit.task.errors?.required"
+          class="label-text-alt text-red-500"
+          >Không để trống</span
+        >
+      </label>
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">content</span>
+      </label>
+      <input
+        type="text"
+        formControlName="content"
+        [(ngModel)]="task.content"
+        placeholder="content"
+        class="input input-info input-bordered"
+      />
+      <label
+        class="label"
+        *ngIf="
+          fEdit.content.invalid &&
+          (fEdit.content.dirty || fEdit.content.touched)
+        "
+      >
+        <span
+          *ngIf="fEdit.content.errors?.required"
+          class="label-text-alt text-red-500"
+          text-red-500
+          >Không để trống</span
+        >
+      </label>
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">deadline</span>
+      </label>
+      <input
+        type="date"
+        formControlName="deadline"
+        [(ngModel)]="task.deadline"
+        placeholder="deadline"
+        class="input input-info input-bordered"
+      />
+      <label
+        class="label"
+        *ngIf="
+          fEdit.deadline.invalid &&
+          (fEdit.deadline.dirty || fEdit.deadline.touched)
+        "
+      >
+        <span
+          *ngIf="fEdit.deadline.errors?.required"
+          class="label-text-alt text-red-500"
+          text-red-500
+          >Không để trống</span
+        >
+      </label>
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">status</span>
+      </label>
+      <select
+        formControlName="status"
+        [(ngModel)]="task.status"
+        class="select select-bordered select-info w-full"
+      >
+        <option disabled="disabled" selected>Chọn trạng thái</option>
+        <option>Chưa làm</option>
+        <option>Đang làm</option>
+        <option>Hoàn thành</option>
+        <option>Hủy</option>
+      </select>
+      <label
+        class="label"
+        *ngIf="
+          fEdit.status.invalid && (fEdit.status.dirty || fEdit.status.touched)
+        "
+      >
+        <span
+          *ngIf="fEdit.status.errors?.required"
+          class="label-text-alt text-red-500"
+          text-red-500
+          >Không để trống</span
+        >
+      </label>
+    </div>
+
+    <div class="modal-action">
+      <button
+        (click)="handleEditTask()"
+        [disabled]="!editTask.valid"
+        class="btn btn-primary"
+      >
+        Edit task
+      </button>
+    </div>
+  </form>
+</div>

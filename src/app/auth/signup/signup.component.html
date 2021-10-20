@@ -1,0 +1,68 @@
+<div class="container mx-auto">
+  <div class="mx-auto mt-5">
+    <!-- <img
+      [routerLink]="['/home']"
+      class="mx-auto"
+      src="{{ images.url }}"
+      alt=""
+      width="40%"
+    /> -->
+  </div>
+  <div class="mx-40 grid grid-cols-1 shadow-2xl p-10 mt-5 rounded">
+    <h4 class="text-center font-bold opacity-70 mt-2">Đăng nhập vào Trello</h4>
+    <
+    <form [formGroup]="signupForm" (submit)="submitForm()">
+      <div class="mx-40 grid grid-cols-1 shadow-2xl p-10 mt-5 rounded">
+        <h4 class="text-center font-bold opacity-70 mt-2">
+          Đăng nhập vào Trello
+        </h4>
+        <input
+          type="text"
+          placeholder="Nhập email"
+          class="input input-primary input-bordered mt-5"
+          formControlName="email"
+        />
+        <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+          <p *ngIf="f.email.errors?.required">Hãy nhập email</p>
+        </div>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Nhập mật khẩu"
+          class="input input-primary input-bordered mt-5"
+        />
+        <div
+          *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)"
+        >
+          <p *ngIf="f.password.errors?.required">Hãy nhập password</p>
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="!signupForm.valid"
+          class="btn btn-accent mt-5"
+        >
+          Đăng ký tài khoản
+        </button>
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn btn-link text-info text-xs">
+          Chính sách Riêng tư
+        </button>
+        <button class="btn btn-link text-info text-xs">
+          Điều khoản dịch vụ
+        </button>
+      </div>
+    </form>
+    <button class="btn btn-link mt-10 text-info text-2xs">
+      Bạn đã có tài khoản? Đăng nhập
+    </button>
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-link text-info text-xs">Chính sách Riêng tư</button>
+    <button class="btn btn-link text-info text-xs">Điều khoản dịch vụ</button>
+  </div>
+  <div class="mt-10">
+    <!-- <img class="mx-auto" src="{{images.url1}}" alt="" width="20%"> -->
+  </div>
+</div>
