@@ -10,20 +10,18 @@ import { ITask } from '../interface';
 export class TaskService {
   constructor(private http: HttpClient) {}
   getByCateId(id: string): Observable<any> {
-    return this.http.get<any>(
-      `${environment.apiLocalUrl}/task?categoryId=${id}`
-    );
+    return this.http.get<any>(`${environment.apiUrl}/task?categoryId=${id}`);
   }
   addTask(data: ITask): Observable<any> {
-    return this.http.post<any>(`${environment.apiLocalUrl}/task`, data);
+    return this.http.post<any>(`${environment.apiUrl}/task`, data);
   }
   getById(id: string): Observable<any> {
-    return this.http.get<any>(`${environment.apiLocalUrl}/task/${id}`);
+    return this.http.get<any>(`${environment.apiUrl}/task/${id}`);
   }
   updateTask(id: string, data: any): Observable<any> {
-    return this.http.put<any>(`${environment.apiLocalUrl}/task/${id}`, data);
+    return this.http.put<any>(`${environment.apiUrl}/task/${id}`, data);
   }
   removeTask(id: string): Observable<any> {
-    return this.http.delete<any>(`${environment.apiLocalUrl}/task/${id}`);
+    return this.http.delete<any>(`${environment.apiUrl}/task/${id}`);
   }
 }

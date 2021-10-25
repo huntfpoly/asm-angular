@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './auth/signup/signup.component';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { EditTaskComponent } from './admin/edit-task/edit-task.component';
+import { EditProjectComponent } from './admin/edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EditTaskComponent } from './admin/edit-task/edit-task.component';
     LoginComponent,
     SignupComponent,
     EditTaskComponent,
+    EditProjectComponent,
   ],
   imports: [
     BrowserModule,

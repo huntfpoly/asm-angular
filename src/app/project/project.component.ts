@@ -35,7 +35,6 @@ export class ProjectComponent implements OnInit {
   ngOnInit(): void {
     if (this.useId) {
       this.ProjectService.getByUserId(this.useId).subscribe((data) => {
-        console.log(data);
         this.projects = data;
       });
     }

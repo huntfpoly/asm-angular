@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
 
-  apiLocalUrl: 'http://localhost:4000/api',
-  apiHostingUrl: 'https://api-angular-1.herokuapp.com/api',
+  // apiUrl: 'http://localhost:4000/api',
+  apiUrl: 'https://api-angular-1.herokuapp.com/api',
 };
 
 /*

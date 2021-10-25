@@ -2,26 +2,25 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { IProject } from '../interface';
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
   constructor(private http: HttpClient) {}
   getByUserId(userId: string): Observable<any> {
-    return this.http.get<any>(
-      `${environment.apiLocalUrl}/project?userId=${userId}`
-    );
+    return this.http.get<any>(`${environment.apiUrl}/project?userId=${userId}`);
   }
   add(data: any): Observable<any> {
-    return this.http.post<any>(`${environment.apiLocalUrl}/project`, data);
+    return this.http.post<any>(`${environment.apiUrl}/project`, data);
   }
   getById(id: string): Observable<any> {
-    return this.http.get<any>(`${environment.apiLocalUrl}/project/${id}`);
+    return this.http.get<any>(`${environment.apiUrl}/project/${id}`);
   }
   removeProject(id: string): Observable<any> {
-    return this.http.delete<any>(`${environment.apiLocalUrl}/project/${id}`);
+    return this.http.delete<any>(`${environment.apiUrl}/project/${id}`);
   }
-  // updateCategory(item: any): Observable<any> {
-  //   return this.http.put<any>(`${this.apiUrl}/${item.id}`, item);
-  // }
+  updateProject(id: string, data: IProject): Observable<any> {
+    return this.http.put<any>(`${environment.apiUrl}/project/${id}`, data);
+  }
 }

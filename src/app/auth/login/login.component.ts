@@ -40,11 +40,12 @@ export class LoginComponent implements OnInit {
           'user',
           JSON.stringify({ email: data.email, _id: data._id })
         );
+        this.authService.isLoggedIn = true;
         this.router.navigate(['/project']);
       } else {
         // this.error =
         console.log(data);
-        alert('Đăng nhập không thành công');
+        alert(data.error);
       }
     });
   }

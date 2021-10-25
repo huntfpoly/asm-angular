@@ -1,3 +1,4 @@
+import { EditProjectComponent } from './admin/edit-project/edit-project.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -29,6 +30,11 @@ const routes: Routes = [
   {
     path: 'task/edit/:id',
     component: EditTaskComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'project/edit/:id',
+    component: EditProjectComponent,
     canActivate: [AuthenticationGuard],
   },
   // { path: '**', redirectTo: 'project', pathMatch: 'full' },

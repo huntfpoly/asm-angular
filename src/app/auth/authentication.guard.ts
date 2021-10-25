@@ -24,8 +24,10 @@ export class AuthenticationGuard implements CanActivate {
     | UrlTree {
     let authToken = localStorage.getItem('accessToken');
     if (authToken != undefined && authToken.length > 0) {
+      // this.auth.isLoggedIn = true;
       return true;
     }
+    // this.auth.isLoggedIn = false;
     this.router.navigate(['/login']);
     return false;
   }

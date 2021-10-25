@@ -14,16 +14,10 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
   login(loginData: ILoginData): Observable<any> {
-    return this.http.post<any>(
-      `${environment.apiLocalUrl}/auth/login`,
-      loginData
-    );
+    return this.http.post<any>(`${environment.apiUrl}/auth/login`, loginData);
   }
   signup(signupData: ILoginData): Observable<any> {
-    return this.http.post<any>(
-      `${environment.apiLocalUrl}/auth/signup`,
-      signupData
-    );
+    return this.http.post<any>(`${environment.apiUrl}/auth/signup`, signupData);
   }
   logout(): void {
     localStorage.removeItem('accessToken');

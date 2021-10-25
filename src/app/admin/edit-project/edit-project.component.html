@@ -1,0 +1,41 @@
+<div class="container mx-auto">
+  <button (click)="back()" class="btn">Back</button>
+
+  <form [formGroup]="editProject">
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Title</span>
+      </label>
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="title"
+        [(ngModel)]="project.title"
+        class="input input-info input-bordered"
+      />
+      <label
+        class="label"
+        *ngIf="
+          fEdit.title.invalid && (fEdit.title.dirty || fEdit.title.touched)
+        "
+      >
+        <span
+          *ngIf="fEdit.title.errors?.required"
+          class="label-text-alt text-red-500"
+          text-red-500
+          >Không để trống</span
+        >
+      </label>
+    </div>
+
+    <div class="modal-action">
+      <button
+        (click)="handleEditProject()"
+        [disabled]="!editProject.valid"
+        class="btn btn-primary"
+      >
+        Edit task
+      </button>
+    </div>
+  </form>
+</div>
